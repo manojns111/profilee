@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manoj N S | Portfolio</title>
+    <style>
+        :root {
+            --accent: #27ae60;
+            --accent-glow: rgba(39, 174, 96, 0.6);
+            --dark: #0a0a0a;
+            --card-bg: rgba(255, 255, 255, 0.05);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', 'Segoe UI', sans-serif; }
+        html { scroll-behavior: smooth; }
+        body { color: #fff; background-color: var(--dark); overflow-x: hidden; }
+
+        /* --- STATIC BACKGROUND --- */
+        #bg-canvas {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            z-index: -1;
+            background: radial-gradient(circle at center, #1a1a1a 0%, #050505 100%);
+        }
+
+        /* --- NAVIGATION --- */
+        nav {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            background: rgba(0, 0, 0, 0.9);
+            backdrop-filter: blur(15px);
+            padding: 20px 0;
+            position: fixed;
+            width: 100%; top: 0; z-index: 1000;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        nav a { color: white; text-decoration: none; font-weight: 500; margin: 0 15px; transition: 0.3s; text-transform: uppercase; letter-spacing: 1px; font-size: 0.85rem; }
+        nav a:hover { color: var(--accent); }
+
+        /* --- HERO (Image is now static) --- */
+        #home {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+        .profile-img {
+            width: 200px; height: 200px;
+            border-radius: 50%;
+            border: 4px solid var(--accent);
+            margin-bottom: 25px;
+            object-fit: cover;
+            box-shadow: 0 0 25px var(--accent-glow);
+            /* Movement removed */
+        }
+        #home h1 { font-size: 3.5rem; font-weight: 800; margin-bottom: 10px; }
+        #home p { font-size: 1.2rem; color: #aaa; }
+
+        /* --- REUSABLE SECTION STYLE --- */
+        .section-wrapper { padding: 100px 10%; text-align: center; }
+        h2 { font-size: 2.5rem; margin-bottom: 50px; text-transform: uppercase; letter-spacing: 2px; }
+        h2 span { color: var(--accent); }
+
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; }
+
+        .glass-card {
+            background: var(--card-bg);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.1);
+            padding: 35px;
+            border-radius: 15px;
+            text-align: left;
+            transition: 0.3s;
+        }
+        .glass-card:hover { border-color: var(--accent); background: rgba(255,255,255,0.08); }
+
+        /* --- SKILLS --- */
+        .skill-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; }
+        .skill-box {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid var(--accent);
+            padding: 10px 25px;
+            border-radius: 50px;
+            font-weight: 600;
+        }
+
+        /* --- CONTACT --- */
+        .contact-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; text-align: left; }
+        .info-item { display: flex; align-items: center; margin-bottom: 20px; color: white; text-decoration: none; }
+        .icon-circle { width: 50px; height: 50px; background: var(--accent); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 20px; font-size: 1.2rem; }
+
+        form input, form textarea { width: 100%; padding: 15px; margin-bottom: 15px; background: rgba(255,255,255,0.05); border: 1px solid #333; border-radius: 8px; color: white; outline: none; }
+        .btn { width: 100%; padding: 15px; background: var(--accent); color: white; border: none; border-radius: 8px; font-weight: bold; cursor: pointer; transition: 0.3s; }
+        .btn:hover { background: #219150; box-shadow: 0 0 15px var(--accent-glow); }
+
+        footer { padding: 50px; text-align: center; border-top: 1px solid rgba(255,255,255,0.1); font-style: italic; }
+
+        @media (max-width: 768px) { #home h1 { font-size: 2.2rem; } }
+    </style>
+</head>
+<body>
+
+    <canvas id="bg-canvas"></canvas>
+
+    <nav>
+        <div style="font-weight:900; color:var(--accent);">MANOJ N S</div>
+        <div>
+            <a href="#home">Home</a>
+            <a href="#skills">Skills</a>
+            <a href="#education">Education</a>
+            <a href="#projects">Projects</a>
+            <a href="#contact">Connect</a>
+        </div>
+    </nav>
+
+    <section id="home">
+        <img src="C:\Users\manoj\OneDrive\Desktop\profile.jpeg" class="profile-img">
+        <h1>I'M MANOJ N S</h1>
+        <p>I am a student & developer building tech for social impact</p>
+    </section>
+
+    <section id="skills" class="section-wrapper">
+        <h2>Technical <span>Skills</span></h2>
+        <div class="skill-grid">
+            <div class="skill-box">Python</div>
+            <div class="skill-box">C Programming</div>
+            <div class="skill-box" style="background: var(--accent);">Java</div>
+            <div class="skill-box">HTML / CSS</div>
+            <div class="skill-box">AI Implementation</div>
+        </div>
+    </section>
+
+    <section id="education" class="section-wrapper">
+        <h2>My <span>Education</span></h2>
+        <div class="grid">
+            <div class="glass-card">
+                <h3 style="color:var(--accent);">Master of Computer Applications</h3>
+                <p style="margin-top:10px;">Currently Pursuing | Focused on Advanced Data Logic & AI.</p>
+            </div>
+            <div class="glass-card">
+                <h3 style="color:var(--accent);">Bachelor of Computer Applications</h3>
+                <p style="margin-top:10px;">Completed | Gained solid foundation in software development.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="certs" class="section-wrapper" style="background: rgba(255,255,255,0.02);">
+        <h2><span>Certifications</span></h2>
+        <div class="grid">
+            <div class="glass-card" style="border-style: dashed;">
+                <h3>AI Specialist</h3>
+                <p>Industry Professional Certificate in AI systems.</p>
+            </div>
+            <div class="glass-card" style="border-style: dashed;">
+                <h3>Web Development</h3>
+                <p>Professional Full Stack Web Development training.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="interests" class="section-wrapper">
+        <h2>Personal <span>Interests</span></h2>
+        <div class="grid">
+            <div class="glass-card">🚀 Tech Innovation</div>
+            <div class="glass-card">🌱 Modern Farming</div>
+            <div class="glass-card">📈 Stock Trading</div>
+            <div class="glass-card">💻 System Coding</div>
+        </div>
+    </section>
+
+    <section id="projects" class="section-wrapper">
+        <h2>Featured <span>Projects</span></h2>
+        <div class="grid">
+            <div class="glass-card">
+                <h4 style="color:var(--accent);">Stock Market Insights</h4>
+                <p>Data analysis tool for financial trends.</p>
+            </div>
+            <div class="glass-card">
+                <h4 style="color:var(--accent);">Voice Translator AI</h4>
+                <p>Neural-based real-time translation.</p>
+            </div>
+            <div class="glass-card">
+                <h4 style="color:var(--accent);">Agri Friend</h4>
+                <p>Smart solution for modern farm management.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="section-wrapper">
+        <h2>Let's <span>Connect</span></h2>
+        <div class="contact-container">
+            <div>
+                <a href="tel:+919611439604" class="info-item">
+                    <div class="icon-circle">📞</div> +91 9611439604
+                </a>
+                <a href="mailto:manojns516@gmail.com" class="info-item">
+                    <div class="icon-circle">✉️</div> manojns516@gmail.com
+                </a>
+            </div>
+            <form id="pForm">
+                <input type="text" placeholder="Name" required>
+                <input type="email" placeholder="Email" required>
+                <textarea placeholder="Message" rows="4"></textarea>
+                <button type="submit" class="btn">SEND MESSAGE</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <p>"Driven by <span>Logic</span>, Inspired by <span>Nature</span>. Let's build the future."</p>
+    </footer>
+
+    <a href="https://wa.me/919611439604" class="whatsapp-float" target="_blank">WA</a>
+
+    <script>
+        const canvas = document.getElementById('bg-canvas');
+        const ctx = canvas.getContext('2d');
+        let particles = [];
+        function initCanvas() { canvas.width = window.innerWidth; canvas.height = window.innerHeight; }
+        class Particle {
+            constructor() {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height;
+                this.size = Math.random() * 2 + 0.5;
+                this.speedX = Math.random() * 0.4 - 0.2;
+                this.speedY = Math.random() * 0.4 - 0.2;
+            }
+            update() {
+                this.x += this.speedX; this.y += this.speedY;
+                if (this.x > canvas.width) this.x = 0; if (this.x < 0) this.x = canvas.width;
+                if (this.y > canvas.height) this.y = 0; if (this.y < 0) this.y = canvas.height;
+            }
+            draw() {
+                ctx.fillStyle = 'rgba(39, 174, 96, 0.3)';
+                ctx.beginPath(); ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2); ctx.fill();
+            }
+        }
+        function handleParticles() {
+            for (let i = 0; i < particles.length; i++) {
+                particles[i].update(); particles[i].draw();
+                for (let j = i; j < particles.length; j++) {
+                    const dx = particles[i].x - particles[j].x;
+                    const dy = particles[i].y - particles[j].y;
+                    const dist = Math.sqrt(dx*dx + dy*dy);
+                    if (dist < 150) {
+                        ctx.strokeStyle = 'rgba(255,255,255,0.02)';
+                        ctx.beginPath(); ctx.moveTo(particles[i].x, particles[i].y);
+                        ctx.lineTo(particles[j].x, particles[j].y); ctx.stroke();
+                    }
+                }
+            }
+        }
+        function animate() { ctx.clearRect(0,0,canvas.width,canvas.height); handleParticles(); requestAnimationFrame(animate); }
+        window.addEventListener('resize', () => { initCanvas(); particles = []; for(let i=0; i<80; i++) particles.push(new Particle()); });
+        initCanvas(); for(let i=0; i<80; i++) particles.push(new Particle()); animate();
+        document.getElementById('pForm').addEventListener('submit', (e) => { e.preventDefault(); alert("Success! Message sent to Manoj."); });
+    </script>
+</body>
+</html>
